@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abinash Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 100px 10%;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-family: 'Audiowide', cursive;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20px;
+      width: 25px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .hamburger span {
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 250px;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 20px;
+      transition: right 0.4s ease-in-out;
+      z-index: 9999;
+    }
+
+    .menu.open {
+      right: 0;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.red { background: red; }
+    .dot.blue { background: #4d94ff; }
+    .dot.green { background: #33cc99; }
+    .dot.yellow { background: yellow; }
+
+    .timeline {
+      border-left: 3px solid white;
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .timeline-item {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .timeline-item span {
+      font-weight: bold;
+      display: block;
+      color: yellow;
+    }
+
+    .skills-icons img {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <div class="content">
+    <nav class="navbar navbar-expand-lg navbar-dark px-3">
+      <a class="navbar-brand text-white" href="#">Abinash</a>
+      <button class="hamburger" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="menu" id="menuPanel">
+      <ul>
+        <li><span class="dot red"></span> <a href="#about">About</a></li>
+        <li><span class="dot blue"></span> <a href="#projects">Projects</a></li>
+        <li><span class="dot green"></span> <a href="#skills">Skills</a></li>
+        <li><span class="dot yellow"></span> <a href="#education">Education</a></li>
+        <li><span class="dot red"></span> <a href="#resume">Resume</a></li>
+        <li><span class="dot blue"></span> <a href="#contact">Contact</a></li>
+        <li><span class="dot green"></span> <a href="#open-source">Open Source</a></li>
+      </ul>
+    </div>
+
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <p>I am Abinash Behera, a passionate developer with skills in Python, Java, React, and more. I love building and learning.</p>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <div class="mb-4">
+        <h4>SheyHealth</h4>
+        <p>Hospital system built using MERN. Manages patients, appointments, staff.</p>
+        <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/sheyhealth" target="_blank">GitHub</a>
+        <a class="btn btn-outline-warning btn-sm" href="#" target="_blank">Live Demo</a>
+      </div>
+      <div class="mb-4">
+        <h4>Hospital Management System</h4>
+        <p>Java Servlet + MySQL project for hospital appointment handling.</p>
+        <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/hospital-management" target="_blank">GitHub</a>
+      </div>
+      <div class="mb-4">
+        <h4>Tip Calculator</h4>
+        <p>Python-based tip calculator for fast bill splits.</p>
+        <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/tip-calculator" target="_blank">GitHub</a>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="skills-icons d-flex flex-wrap gap-4">
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30"> Python</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="30"> Java</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30"> JavaScript</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="30"> React.js</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="30"> MySQL</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="30"> Git</div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item"><span>2022–2024</span> MCA – BPUT, Odisha (CGPA: 8.34)</div>
+        <div class="timeline-item"><span>2019–2022</span> B.Sc. – Utkal University (CGPA: 7.49)</div>
+        <div class="timeline-item"><span>2017–2019</span> 12th – CHSE, Odisha (66%)</div>
+        <div class="timeline-item"><span>2016–2017</span> 10th – BSE, Odisha (85%)</div>
+      </div>
+    </section>
+
+    <section class="section" id="resume">
+      <h2>Resume</h2>
+      <a class="btn btn-outline-light" href="assets/Abinash_CV.pdf" target="_blank">Download Resume</a>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p>Email: abinashbehera9898@gmail.com<br>Phone: +91 9078715715</p>
+    </section>
+
+    <section class="section" id="open-source">
+      <h2>Open Source</h2>
+      <p>GitHub: <a href="https://github.com/lucky-world29" target="_blank">github.com/lucky-world29</a></p>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Hamburger
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.getElementById("menuToggle");
+      const menuPanel = document.getElementById("menuPanel");
+
+      menuToggle.addEventListener("click", () => {
+        menuPanel.classList.toggle("open");
+        menuToggle.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuPanel.contains(e.target) && !menuToggle.contains(e.target)) {
+          menuPanel.classList.remove("open");
+          menuToggle.classList.remove("active");
+        }
+      });
+
+      document.querySelectorAll(".menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          menuPanel.classList.remove("open");
+          menuToggle.classList.remove("active");
+        });
+      });
+    });
+
+    // Stars Background
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas') });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    const count = 300;
+    const positions = new Float32Array(count * 3);
+    const speeds = new Float32Array(count);
+
+    for (let i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+      speeds[i] = 0.01 + Math.random() * 0.02;
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ color: 0xffffff, size: 0.03, transparent: true, opacity: 0.8 });
+    const stars = new THREE.Points(geometry, material);
+    scene.add(stars);
+    camera.position.z = 5;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const pos = stars.geometry.attributes.position.array;
+      for (let i = 0; i < count; i++) {
+        pos[i * 3 + 1] -= speeds[i];
+        if (pos[i * 3 + 1] < -10) {
+          pos[i * 3 + 1] = 10;
+          pos[i * 3] = (Math.random() - 0.5) * 20;
+          pos[i * 3 + 2] = (Math.random() - 0.5) * 20;
+        }
+      }
+      stars.geometry.attributes.position.needsUpdate = true;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Scroll animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".section").forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
