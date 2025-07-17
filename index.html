@@ -18,6 +18,7 @@
       color: white;
       font-family: 'Segoe UI', sans-serif;
       scroll-behavior: smooth;
+	  cursor: none;
     }
 
     canvas {
@@ -152,6 +153,45 @@
 }
 
 
+/* Animation on entry */
+.animate {
+  transform: perspective(800px) rotateX(5deg) translateY(30px);
+  opacity: 0;
+  animation: slideUpFade 1.2s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  to {
+    transform: perspective(800px) rotateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Toast message */
+.toast-message {
+  background-color: #1c1c1e;
+  border: 1px solid #2e2e2e;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #00ff88;
+}
+
+/* Custom cursor outer circle */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  transition: transform 0.15s ease-out;
+}
+
+
   </style>
 </head>
 <body>
@@ -176,10 +216,38 @@
       </ul>
     </div>
 
-    <section class="section" id="about">
-      <h2>📌 Snapshot of Me</h2>
-      <p>I am Abinash Behera, a passionate developer with skills in Python, Java, React, and more. I love building and learning.</p>
-    </section>
+    <section id="about" class="container my-5">
+  <div class="row">
+    <div class="col-lg-9 offset-lg-1 px-3">
+      <h2 class="mb-4">🚀 About Me</h2>
+      <p>
+        I'm <strong>Abinash Behera</strong>, a passionate Full-Stack Developer who loves turning ☕ coffee and 🍜 ramen into clean, impactful code. 
+        I specialize in <strong>React</strong>, <strong>Spring Boot</strong>, and building modern web applications with a focus on performance and design.
+      </p>
+      <p>
+        I thrive on learning, solving real-world problems, and contributing to projects that make a difference. 
+        When I’m not coding, I’m either deep into anime 🎌 or sharing dev tips with the community.
+      </p>
+      <br><br>
+      
+
+      <h4 class="mt-4">💡 What Drives Me</h4>
+      <ul>
+        <li>Constant learning & growth 📖</li>
+        <li>Clean, creative problem-solving 💡</li>
+        <li>Helping and building with others 🤝</li>
+      </ul>
+      <br><br>
+      <h4 class="mt-4">⚡ Fun Facts</h4>
+      <ul>
+        <li>Anime is life 🎭</li>
+        <li>Coffee is fuel ☕</li>
+        <li>Code is art ✨</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
     <!-- <section class="section" id="projects">
       <h2>Projects</h2>
@@ -240,26 +308,189 @@
 </section>
 
     <section class="section" id="skills">
-      <h2>Skills</h2>
-      <div class="skills-icons d-flex flex-wrap gap-4">
-        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30"> Python</div>
-        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="30"> Java</div>
-        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30"> JavaScript</div>
-        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="30"> React.js</div>
-        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="30"> MySQL</div>
-        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="30"> Git</div>
-      </div>
-    </section>
+  <h2 class="text-center mb-4">🚀 Skills</h2>
+  <div class="container">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4 justify-content-center text-center reveal">
 
-    <section class="section" id="education">
-      <h2>Education</h2>
-      <div class="timeline">
-        <div class="timeline-item"><span>2022–2024</span> MCA – BPUT, Odisha (CGPA: 8.34)</div>
-        <div class="timeline-item"><span>2019–2022</span> B.Sc. – Utkal University (CGPA: 7.49)</div>
-        <div class="timeline-item"><span>2017–2019</span> 12th – CHSE, Odisha (66%)</div>
-        <div class="timeline-item"><span>2016–2017</span> 10th – BSE, Odisha (85%)</div>
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Java">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="Java" />
+        </div>
+        <div>Java</div>
       </div>
-    </section>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Spring">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" height="40" alt="Spring" />
+        </div>
+        <div>Spring</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="React">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="React" />
+        </div>
+        <div>React</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Node.js">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="Node.js" />
+        </div>
+        <div>Node.js</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Python">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="Python" />
+        </div>
+        <div>Python</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="MongoDB">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="MongoDB" />
+        </div>
+        <div>MongoDB</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="MySQL">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="MySQL" />
+        </div>
+        <div>MySQL</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="JavaScript">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript" />
+        </div>
+        <div>JavaScript</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="HTML">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="HTML" />
+        </div>
+        <div>HTML</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="CSS">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="CSS" />
+        </div>
+        <div>CSS</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Tailwind CSS">
+  <div class="skill-icon">
+    <img src="https://unpkg.com/simple-icons@v9/icons/tailwindcss.svg" height="40" alt="Tailwind" style="filter: invert(48%) sepia(77%) saturate(594%) hue-rotate(144deg) brightness(100%) contrast(97%);" />
+  </div>
+  <div>Tailwind</div>
+</div>
+
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Bootstrap">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="Bootstrap" />
+        </div>
+        <div>Bootstrap</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Git">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" alt="Git" style="color: white;" />
+        </div>
+        <div>Git</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="GitHub">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" alt="GitHub" />
+        </div>
+        <div>GitHub</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="VS Code">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="VS Code" />
+        </div>
+        <div>VS Code</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Postman">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" height="40" alt="Postman" />
+        </div>
+        <div>Postman</div>
+      </div>
+
+      <div class="col" data-bs-toggle="tooltip" data-bs-title="Eclipse">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" height="40" alt="Eclipse" />
+        </div>
+        <div>Eclipse</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+   <section class="section" id="education">
+  <h2 class="text-center text-light mb-5">🎓 Education</h2>
+  <div class="container position-relative">
+
+    <!-- Central Red Line -->
+    <div class="position-absolute top-0 start-50 translate-middle-x bg-danger d-none d-md-block" style="width: 4px; height: 100%; z-index: 0;"></div>
+
+    <!-- Timeline Item 1 -->
+    <div class="row mb-4">
+      <div class="col-12 col-md-6 text-md-end text-center mb-2 mb-md-0">
+        <div class="d-inline-block bg-dark text-white border rounded p-3">
+          <h5>2016–2017</h5>
+          <p class="mb-0">10th – BSE, Odisha (85%)</p>
+        </div>
+      </div>
+      <div class="col-md-6 d-none d-md-block"></div>
+    </div>
+
+    <!-- Timeline Item 2 -->
+    <div class="row mb-4">
+      <div class="col-md-6 d-none d-md-block"></div>
+      <div class="col-12 col-md-6 text-md-start text-center">
+        <div class="d-inline-block bg-dark text-white border rounded p-3">
+          <h5>2017–2019</h5>
+          <p class="mb-0">12th – CHSE, Odisha (66%)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Item 3 -->
+    <div class="row mb-4">
+      <div class="col-12 col-md-6 text-md-end text-center mb-2 mb-md-0">
+        <div class="d-inline-block bg-dark text-white border rounded p-3">
+          <h5>2019–2022</h5>
+          <p class="mb-0">B.Sc. – Utkal University (CGPA: 7.49)</p>
+        </div>
+      </div>
+      <div class="col-md-6 d-none d-md-block"></div>
+    </div>
+
+    <!-- Timeline Item 4 -->
+    <div class="row mb-4">
+      <div class="col-md-6 d-none d-md-block"></div>
+      <div class="col-12 col-md-6 text-md-start text-center">
+        <div class="d-inline-block bg-dark text-white border rounded p-3">
+          <h5>2022–2024</h5>
+          <p class="mb-0">MCA – BPUT, Odisha (CGPA: 8.34)</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <section class="section" id="resume">
   <h2>Resume</h2>
@@ -298,126 +529,205 @@
     </section>
   </div> -->
 
+<!--  -->
 
-<section class="section" id="connect" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; padding: 2rem 1rem; color: #e6edf3; font-family: 'Segoe UI', sans-serif; font-size: 1rem; text-align: center;">
+<section class="section" id="connect" style="color: #e6edf3; font-family: 'Segoe UI', sans-serif; font-size: 1rem; text-align: center; padding: 2rem 1rem;">
+  <h2 class="text-center mb-4">Contact Me</h2>
 
-  <!-- Load Font Awesome 6
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+  <!-- Contact Form -->
+  <!-- <div class="container mb-5">
+    <form id="contact-form" class="mx-auto animate" style="max-width: 600px;" novalidate>
+      
+      <div class="mb-3 position-relative">
+        <label for="name" class="form-label text-light">Your Name</label>
+        <div class="input-group">
+          <span class="input-group-text bg-transparent border-secondary text-white">
+            <i class="fa fa-user"></i>
+          </span>
+          <input type="text" class="form-control bg-transparent text-white border-secondary" name="name" id="name" required>
+        </div>
+      </div>
 
-<!-- Email -->
-<div>
-  <strong>Email:</strong><br>
-  <a href="mailto:abinashbehera9898@gmail.com" style="color: #8b949e; text-decoration: none;">
-    <i class="fa fa-envelope" style="color: #D44638;"></i> <!-- Gmail red -->
-  </a>
-</div>
+      <div class="mb-3 position-relative">
+        <label for="email" class="form-label text-light">Your Email</label>
+        <div class="input-group">
+          <span class="input-group-text bg-transparent border-secondary text-white">
+            <i class="fa fa-envelope"></i>
+          </span>
+          <input type="email" class="form-control bg-transparent text-white border-secondary" name="email" id="email" required>
+        </div>
+      </div>
 
-<!-- Phone -->
-<div>
-  <strong>Phone:</strong><br>
-  <a href="tel:+919078715715" style="color: #8b949e; text-decoration: none;">
-    <i class="fa fa-phone" style="color: #34A853;"></i> <!-- Google green -->
-  </a>
-</div>
+      <div class="mb-3 position-relative">
+        <label for="message" class="form-label text-light">Your Message</label>
+        <div class="input-group">
+          <span class="input-group-text bg-transparent border-secondary text-white">
+            <i class="fa fa-comment-dots"></i>
+          </span>
+          <textarea class="form-control bg-transparent text-white border-secondary" name="message" id="message" rows="5" required></textarea>
+        </div>
+      </div>
 
-<!-- GitHub -->
-<div>
-  <strong>GitHub:</strong><br>
-  <a href="https://github.com/lucky-world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-github" style="color: #f8f4f4;"></i>
-  </a>
-</div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-outline-light">Send Message</button>
+      </div>
 
-<!-- LinkedIn -->
-<div>
-  <strong>LinkedIn:</strong><br>
-  <a href="https://www.linkedin.com/in/abinashbehera9898/" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-linkedin" style="color: #0077B5;"></i>
-  </a>
-</div>
+      <div id="toast" class="toast-message mt-3 text-success text-center" style="display: none;">
+        ✅ Message sent successfully!
+      </div>
+    </form>
+  </div> -->
 
-<!-- Twitter -->
-<div>
-  <strong>Twitter:</strong><br>
-  <a href="https://x.com/lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
-  </a>
-</div>
+<!-- <h2 class="text-center mb-4 text-light">Contact Me</h2> -->
+  <div class="container">
+    <form id="contact-form" class="mx-auto animate" style="max-width: 600px;" novalidate>
 
-<!-- Instagram -->
-<div>
-  <strong>Instagram:</strong><br>
-  <a href="https://www.instagram.com/lucky_world29/" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-instagram" style="color: #E1306C;"></i>
-  </a>
-</div>
+      <div class="mb-3">
+        <label for="name" class="form-label text-light">Your Name</label>
+        <input type="text" class="form-control bg-transparent text-white border-secondary" name="name" id="name" required>
+      </div>
 
-<!-- Facebook -->
-<div>
-  <strong>Facebook:</strong><br>
-  <a href="https://facebook.com/lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-facebook" style="color: #1877F2;"></i>
-  </a>
-</div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-light">Your Email</label>
+        <input type="email" class="form-control bg-transparent text-white border-secondary" name="email" id="email" required>
+      </div>
 
-<!-- YouTube -->
-<div>
-  <strong>YouTube:</strong><br>
-  <a href="https://www.youtube.com/@lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-youtube" style="color: #FF0000;"></i>
-  </a>
-</div>
+      <div class="mb-3">
+        <label for="message" class="form-label text-light">Your Message</label>
+        <textarea class="form-control bg-transparent text-white border-secondary" name="message" id="message" rows="5" required></textarea>
+      </div>
 
-<!-- Telegram -->
-<div>
-  <strong>Telegram:</strong><br>
-  <a href="https://t.me/lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-telegram" style="color: #0088cc;"></i>
-  </a>
-</div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-outline-light">Send Message</button>
+      </div>
 
-<!-- Discord -->
-<div>
-  <strong>Discord:</strong><br>
-  <a href="https://discord.com/users/lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-discord" style="color: #5865F2;"></i>
-  </a>
-</div>
+      <div id="toast" class="toast-message mt-3 text-success text-center" style="display: none;">
+        ✅ Message sent successfully!
+      </div>
 
-<!-- Reddit -->
-<div>
-  <strong>Reddit:</strong><br>
-  <a href="https://www.reddit.com/user/lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-reddit" style="color: #FF4500;"></i>
-  </a>
-</div>
+    </form>
+  </div>
 
-<!-- WhatsApp -->
-<div>
-  <strong>WhatsApp:</strong><br>
-  <a href="https://wa.me/919078715715" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-whatsapp" style="color: #25D366;"></i>
-  </a>
-</div>
+  <br>
+  <br>
+  <br><br>
 
-<!-- Medium -->
-<div>
-  <strong>Medium:</strong><br>
-  <a href="https://medium.com/@lucky_world29" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-medium" style="color: #d7d2cc;"></i>
-  </a>
-</div>
+  <!-- Social + Contact Links -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem;">
+    <!-- Email -->
+    <div>
+      <strong>Email</strong><br>
+      <a href="mailto:abinashbehera9898@gmail.com" style="color: #8b949e; text-decoration: none;">
+        <i class="fa fa-envelope" style="color: #D44638;"></i>
+      </a>
+    </div>
 
-<!-- Stack Overflow -->
-<div>
-  <strong>Stack Overflow:</strong><br>
-  <a href="https://stackoverflow.com/users/your-id" target="_blank" style="text-decoration: none;">
-    <i class="fab fa-stack-overflow" style="color: #F48024;"></i>
-  </a>
-</div>
+    <!-- Phone -->
+    <div>
+      <strong>Phone</strong><br>
+      <a href="tel:+919078715715" style="color: #8b949e; text-decoration: none;">
+        <i class="fa fa-phone" style="color: #34A853;"></i>
+      </a>
+    </div>
 
+    <!-- GitHub -->
+    <div>
+      <strong>GitHub</strong><br>
+      <a href="https://github.com/lucky-world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-github" style="color: #f8f4f4;"></i>
+      </a>
+    </div>
 
+    <!-- LinkedIn -->
+    <div>
+      <strong>LinkedIn</strong><br>
+      <a href="https://www.linkedin.com/in/abinashbehera9898/" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-linkedin" style="color: #0077B5;"></i>
+      </a>
+    </div>
+
+    <!-- Twitter -->
+    <div>
+      <strong>Twitter</strong><br>
+      <a href="https://x.com/lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+      </a>
+    </div>
+
+    <!-- Instagram -->
+    <div>
+      <strong>Instagram</strong><br>
+      <a href="https://www.instagram.com/lucky_world29/" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-instagram" style="color: #E1306C;"></i>
+      </a>
+    </div>
+
+    <!-- Facebook -->
+    <div>
+      <strong>Facebook</strong><br>
+      <a href="https://facebook.com/lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-facebook" style="color: #1877F2;"></i>
+      </a>
+    </div>
+
+    <!-- YouTube -->
+    <div>
+      <strong>YouTube</strong><br>
+      <a href="https://www.youtube.com/@lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-youtube" style="color: #FF0000;"></i>
+      </a>
+    </div>
+
+    <!-- Telegram -->
+    <div>
+      <strong>Telegram</strong><br>
+      <a href="https://t.me/lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-telegram" style="color: #0088cc;"></i>
+      </a>
+    </div>
+
+    <!-- Discord -->
+    <div>
+      <strong>Discord</strong><br>
+      <a href="https://discord.com/users/lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-discord" style="color: #5865F2;"></i>
+      </a>
+    </div>
+
+    <!-- Reddit -->
+    <div>
+      <strong>Reddit</strong><br>
+      <a href="https://www.reddit.com/user/lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-reddit" style="color: #FF4500;"></i>
+      </a>
+    </div>
+
+    <!-- WhatsApp -->
+    <div>
+      <strong>WhatsApp</strong><br>
+      <a href="https://wa.me/919078715715" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+      </a>
+    </div>
+
+    <!-- Medium -->
+    <div>
+      <strong>Medium</strong><br>
+      <a href="https://medium.com/@lucky_world29" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-medium" style="color: #d7d2cc;"></i>
+      </a>
+    </div>
+
+    <!-- Stack Overflow -->
+    <div>
+      <strong>Stack Overflow</strong><br>
+      <a href="https://stackoverflow.com/users/your-id" target="_blank" style="text-decoration: none;">
+        <i class="fab fa-stack-overflow" style="color: #F48024;"></i>
+      </a>
+    </div>
+  </div>
 </section>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
@@ -503,5 +813,50 @@
 
     document.querySelectorAll(".section").forEach(section => observer.observe(section));
   </script>
+
+
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("https://formspree.io/f/mzzvzbbd", {
+    method: "POST",
+    body: formData,
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById("toast").style.display = "block";
+        form.reset();
+        setTimeout(() => {
+          document.getElementById("toast").style.display = "none";
+        }, 4000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch(() => alert("Error occurred while sending the message."));
+});
+</script>
+<script>
+// Create the custom cursor element
+const cursor = document.createElement('div');
+cursor.classList.add('cursor');
+document.body.appendChild(cursor);
+
+// Mousemove tracking
+window.addEventListener('mousemove', (e) => {
+  cursor.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+});
+
+</script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 </body>
 </html>
