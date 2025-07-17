@@ -7,6 +7,9 @@
   <title>Abinash Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
   <style>
     body, html {
       margin: 0;
@@ -135,9 +138,20 @@
       color: yellow;
     }
 
-    .skills-icons img {
+    .skills-icons img { 
       margin-right: 10px;
     }
+
+  .btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+
   </style>
 </head>
 <body>
@@ -157,18 +171,19 @@
         <li><span class="dot green"></span> <a href="#skills">Skills</a></li>
         <li><span class="dot yellow"></span> <a href="#education">Education</a></li>
         <li><span class="dot red"></span> <a href="#resume">Resume</a></li>
-        <li><span class="dot blue"></span> <a href="#contact">Contact</a></li>
-        <li><span class="dot green"></span> <a href="#open-source">Open Source</a></li>
+        <li><span class="dot blue"></span> <a href="#connect">connect</a></li>
+        <!-- <li><span class="dot green"></span> <a href="#open-source">Open Source</a></li> -->
       </ul>
     </div>
 
     <section class="section" id="about">
-      <h2>About Me</h2>
+      <h2>📌 Snapshot of Me</h2>
       <p>I am Abinash Behera, a passionate developer with skills in Python, Java, React, and more. I love building and learning.</p>
     </section>
 
-    <section class="section" id="projects">
+    <!-- <section class="section" id="projects">
       <h2>Projects</h2>
+      <br>
       <div class="mb-4">
         <h4>SheyHealth</h4>
         <p>Hospital system built using MERN. Manages patients, appointments, staff.</p>
@@ -185,7 +200,44 @@
         <p>Python-based tip calculator for fast bill splits.</p>
         <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/tip-calculator" target="_blank">GitHub</a>
       </div>
-    </section>
+      <div class="mb-4">
+        <h4>Job Portal</h4>
+        <p>Job portal built using Spring Boot and JSP pages. Allows users to view and apply for jobs.</p>
+        <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/job-app" target="_blank">GitHub</a>
+        <a class="btn btn-outline-warning btn-sm" href="https://job-app-by-abinash.up.railway.app/" target="_blank">Live Demo</a>
+      </div>
+      
+    </section> -->
+<section class="section" id="projects">
+  <h2 class="text-center mb-4">Projects</h2>
+  <br>
+
+  <div class="mb-4">
+    <h4>SheyHealth</h4>
+    <p>Hospital system built using MERN. Manages patients, appointments, staff.</p>
+    <a class="btn btn-outline-light btn-sm me-2" href="https://github.com/lucky-world29/sheyhealth" target="_blank">GitHub</a>
+    <a class="btn btn-outline-danger btn-sm" href="#" target="_blank">Live Demo</a>
+  </div>
+
+  <div class="mb-4">
+    <h4>Hospital Management System</h4>
+    <p>Java Servlet + MySQL project for hospital appointment handling.</p>
+    <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/hospital-management" target="_blank">GitHub</a>
+  </div>
+
+  <div class="mb-4">
+    <h4>Tip Calculator</h4>
+    <p>Python-based tip calculator for fast bill splits.</p>
+    <a class="btn btn-outline-light btn-sm" href="https://github.com/lucky-world29/tip-calculator" target="_blank">GitHub</a>
+  </div>
+
+  <div class="mb-4">
+    <h4>Job Portal</h4>
+    <p>Job portal built using Spring Boot and JSP pages. Allows users to view and apply for jobs.</p>
+    <a class="btn btn-outline-light btn-sm me-2" href="https://github.com/lucky-world29/job-app" target="_blank">GitHub</a>
+    <a class="btn btn-outline-danger btn-sm" href="https://job-app-by-abinash.up.railway.app/" target="_blank">Live Demo</a>
+  </div>
+</section>
 
     <section class="section" id="skills">
       <h2>Skills</h2>
@@ -209,12 +261,33 @@
       </div>
     </section>
 
-    <section class="section" id="resume">
-      <h2>Resume</h2>
-      <a class="btn btn-outline-light" href="assets/Abinash_CV.pdf" target="_blank">Download Resume</a>
-    </section>
+<section class="section" id="resume">
+  <h2>Resume</h2>
 
-    <section class="section" id="contact">
+  <!-- Buttons -->
+  <div style="margin-bottom: 1rem;">
+    <button class="btn btn-outline-light" onclick="toggleResume()">Show Resume</button>
+    <a class="btn btn-outline-light" href="https://github.com/luv-lux/luv-lux/raw/main/Abinash_CV.pdf" target="_blank" download>Download Resume</a>
+  </div>
+
+  <!-- Embedded PDF viewer (Google Docs Viewer) -->
+  <div id="resumeViewer" style="display: none; margin-top: 1rem;">
+    <iframe 
+      src="https://docs.google.com/gview?url=https://github.com/luv-lux/luv-lux/raw/main/Abinash_CV.pdf&embedded=true"
+      width="100%" height="600px"
+      style="border: 2px solid #ccc; border-radius: 10px;"></iframe>
+  </div>
+</section>
+
+<script>
+  function toggleResume() {
+    const viewer = document.getElementById("resumeViewer");
+    viewer.style.display = (viewer.style.display === "none" || viewer.style.display === "") ? "block" : "none";
+  }
+</script>
+
+
+    <!-- <section class="section" id="contact">
       <h2>Contact</h2>
       <p>Email: abinashbehera9898@gmail.com<br>Phone: +91 9078715715</p>
     </section>
@@ -223,7 +296,128 @@
       <h2>Open Source</h2>
       <p>GitHub: <a href="https://github.com/lucky-world29" target="_blank">github.com/lucky-world29</a></p>
     </section>
-  </div>
+  </div> -->
+
+
+<section class="section" id="connect" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; padding: 2rem 1rem; color: #e6edf3; font-family: 'Segoe UI', sans-serif; font-size: 1rem; text-align: center;">
+
+  <!-- Load Font Awesome 6
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+
+<!-- Email -->
+<div>
+  <strong>Email:</strong><br>
+  <a href="mailto:abinashbehera9898@gmail.com" style="color: #8b949e; text-decoration: none;">
+    <i class="fa fa-envelope" style="color: #D44638;"></i> <!-- Gmail red -->
+  </a>
+</div>
+
+<!-- Phone -->
+<div>
+  <strong>Phone:</strong><br>
+  <a href="tel:+919078715715" style="color: #8b949e; text-decoration: none;">
+    <i class="fa fa-phone" style="color: #34A853;"></i> <!-- Google green -->
+  </a>
+</div>
+
+<!-- GitHub -->
+<div>
+  <strong>GitHub:</strong><br>
+  <a href="https://github.com/lucky-world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-github" style="color: #f8f4f4;"></i>
+  </a>
+</div>
+
+<!-- LinkedIn -->
+<div>
+  <strong>LinkedIn:</strong><br>
+  <a href="https://www.linkedin.com/in/abinashbehera9898/" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-linkedin" style="color: #0077B5;"></i>
+  </a>
+</div>
+
+<!-- Twitter -->
+<div>
+  <strong>Twitter:</strong><br>
+  <a href="https://x.com/lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+  </a>
+</div>
+
+<!-- Instagram -->
+<div>
+  <strong>Instagram:</strong><br>
+  <a href="https://www.instagram.com/lucky_world29/" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-instagram" style="color: #E1306C;"></i>
+  </a>
+</div>
+
+<!-- Facebook -->
+<div>
+  <strong>Facebook:</strong><br>
+  <a href="https://facebook.com/lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-facebook" style="color: #1877F2;"></i>
+  </a>
+</div>
+
+<!-- YouTube -->
+<div>
+  <strong>YouTube:</strong><br>
+  <a href="https://www.youtube.com/@lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-youtube" style="color: #FF0000;"></i>
+  </a>
+</div>
+
+<!-- Telegram -->
+<div>
+  <strong>Telegram:</strong><br>
+  <a href="https://t.me/lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-telegram" style="color: #0088cc;"></i>
+  </a>
+</div>
+
+<!-- Discord -->
+<div>
+  <strong>Discord:</strong><br>
+  <a href="https://discord.com/users/lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-discord" style="color: #5865F2;"></i>
+  </a>
+</div>
+
+<!-- Reddit -->
+<div>
+  <strong>Reddit:</strong><br>
+  <a href="https://www.reddit.com/user/lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-reddit" style="color: #FF4500;"></i>
+  </a>
+</div>
+
+<!-- WhatsApp -->
+<div>
+  <strong>WhatsApp:</strong><br>
+  <a href="https://wa.me/919078715715" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+  </a>
+</div>
+
+<!-- Medium -->
+<div>
+  <strong>Medium:</strong><br>
+  <a href="https://medium.com/@lucky_world29" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-medium" style="color: #d7d2cc;"></i>
+  </a>
+</div>
+
+<!-- Stack Overflow -->
+<div>
+  <strong>Stack Overflow:</strong><br>
+  <a href="https://stackoverflow.com/users/your-id" target="_blank" style="text-decoration: none;">
+    <i class="fab fa-stack-overflow" style="color: #F48024;"></i>
+  </a>
+</div>
+
+
+</section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
